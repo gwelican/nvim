@@ -152,12 +152,23 @@ require('lazy').setup({
     },
   },
 
-  { "catppuccin/nvim", 
-    name = "catppuccin", 
+  {
+    "folke/trouble.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    opts = {
+      icons = true,
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    },
+  },
+
+  { "catppuccin/nvim",
+    name = "catppuccin",
     priority = 1000,
-      config = function()
-        vim.cmd.colorscheme 'catppuccin-mocha'
-      end,
+    config = function()
+      vim.cmd.colorscheme 'catppuccin-mocha'
+    end,
   },
 
   -- {
@@ -216,6 +227,11 @@ require('lazy').setup({
     },
   },
 
+  { "theprimeagen/harpoon" },
+  { "theprimeagen/refactoring.nvim"},
+  { "mbbill/undotree" },
+  { "nvim-treesitter/playground" },
+  { "nvim-treesitter/nvim-treesitter-context" },
   {
     -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
