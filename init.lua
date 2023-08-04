@@ -229,6 +229,7 @@ require('lazy').setup({
 
   { "theprimeagen/harpoon" },
   { "theprimeagen/refactoring.nvim"},
+  { 'taybart/b64.nvim' },
   { "mbbill/undotree" },
   { "nvim-treesitter/playground" },
   { "nvim-treesitter/nvim-treesitter-context" },
