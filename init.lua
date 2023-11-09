@@ -194,14 +194,35 @@ require('lazy').setup({
     },
   },
 
+  -- {
+  --   -- Add indentation guides even on blank lines
+  --   'lukas-reineke/indent-blankline.nvim',
+  --   -- Enable `lukas-reineke/indent-blankline.nvim`
+  --   -- See `:help indent_blankline.txt`
+  --   opts = {
+  --     char = '┊',
+  --     show_trailing_blankline_indent = false,
+  --   },
+  -- },
+
+  { 'tpope/vim-dadbod' },
+  { 'kristijanhusak/vim-dadbod-ui' },
   {
-    -- Add indentation guides even on blank lines
-    'lukas-reineke/indent-blankline.nvim',
-    -- Enable `lukas-reineke/indent-blankline.nvim`
-    -- See `:help ibl`
-    main = 'ibl',
-    opts = {},
-    },
+    "kristijanhusak/vim-dadbod-completion",
+    lazy = true,
+    dependencies = { "tpope/vim-dadbod" },
+    ft = { "sql", "mysql", "plsql" },
+    init = function()
+      vim.api.nvim_create_autocmd("FileType", {
+        group = vim.api.nvim_create_augroup("kide_vim_dadbod_completion", { clear = true }),
+        pattern = { "sql", "mysql", "plsql" },
+        callback = function(event)
+          require("cmp").setup.buffer({ sources = { { name = "vim-dadbod-completion" } } })
+        end,
+      })
+    end,
+    config = function() end,
+  },
 
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
