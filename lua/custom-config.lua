@@ -15,6 +15,7 @@ vim.api.nvim_create_autocmd('BufReadPost', {
 vim.keymap.set('n', ',e', ':e <C-R>=expand("%:p:h") .. "/"<CR>', { noremap = true })
 vim.keymap.set('n', ',t', ':tabe <C-R>=expand("%:p:h") .. "/"<CR>', { noremap = true })
 vim.keymap.set('n', ',s', ':split <C-R>=expand("%:p:h") .. "/"<CR>', { noremap = true })
+vim.keymap.set('n', ',v', ':vsplit <C-R>=expand("%:p:h") .. "/"<CR>', { noremap = true })
 
 vim.keymap.set('n', '<leader>ee', 'oif err != nil {<CR>}<Esc>Oreturn err<Esc>')
 vim.keymap.set('n', '<C-k>', '<cmd>cnext<CR>zz')
@@ -53,3 +54,5 @@ vim.opt.colorcolumn = '140'
 vim.keymap.set('n', '<leader><leader>', function()
   vim.cmd 'so'
 end)
+
+vim.cmd.colorscheme = 'catppuccin-frape'
