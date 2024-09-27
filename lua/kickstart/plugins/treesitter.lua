@@ -18,6 +18,7 @@ return {
         'json5',
         'rust',
         'java',
+        'nix',
         'go',
         'query',
         'diff',
