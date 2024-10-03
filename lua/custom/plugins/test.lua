@@ -1,8 +1,8 @@
 return {
   'klen/nvim-test',
   keys = {
-    { '<leader>T', "<cmd>TestFile<cr>", desc="Run test file"},
-    { '<leader>R', "<cmd>TestNearest<cr>", desc="Run TestNearest"},
+    { '<leader>T', "<cmd>TestFile<cr><cr>", desc="Run test file"},
+    { '<leader>R', "<cmd>TestNearest<cr><cr>", desc="Run TestNearest"},
   },
   config = function()
     require('nvim-test').setup()
