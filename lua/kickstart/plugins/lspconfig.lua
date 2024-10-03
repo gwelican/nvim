@@ -103,10 +103,12 @@ return {
           -- Rename the variable under your cursor.
           --  Most Language Servers support renaming across files, etc.
           map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
+          map('<leader>K', vim.lsp.buf.hover, 'Hover Documentation')
 
           -- Execute a code action, usually your cursor needs to be on top of an error
           -- or a suggestion from your LSP for this to activate.
           map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction', { 'n', 'x' })
+
 
           -- WARN: This is not Goto Definition, this is Goto Declaration.
           --  For example, in C this would take you to the header.
@@ -170,6 +172,15 @@ return {
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
+        mypy ={},
+        debugpy = {},
+        pylint = {},
+        flake8 = {},
+        pyright = {},
+        gopls = {},
+
+
+
         -- clangd = {},
         -- gopls = {},
         -- pyright = {},
