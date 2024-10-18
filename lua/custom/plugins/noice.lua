@@ -13,9 +13,10 @@ return {
     --   If not available, we use `mini` as the fallback
     'rcarriga/nvim-notify',
   },
-  config = function()
-    require('notify').setup {
-      background_colour = '#000000',
-    }
-  end,
+  
+  -- config = function()
+  --   require('notify').setup {
+  --     background_colour = '#000000',
+  --   }
+  -- end,
 }
