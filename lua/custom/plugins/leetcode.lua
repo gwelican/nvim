@@ -11,17 +11,19 @@ return {
     -- "rcarriga/nvim-notify",
     "nvim-tree/nvim-web-devicons",
   },
-  -- config = function()
-  --   require('leetcode').setup {
-  --     workspace = '~/leetcode',
-  --     leetcode = {
-  --     };
-  --   require('notify').setup {
-  --     background_colour = '#000000',
-  --   }
-  -- end,
+  keys = {
+    {'<leader>Lr', "<cmd>Leet run<cr>", desc="Leetcode run"},
+    {'<leader>Ls', "<cmd>Leet submit<cr>", desc="leetcode submit"},
+  },
+  cmd = "Leet",
+  lazy = false,
   opts = {
-    lang = "python3"
+    lang = "python3",
+    injector = {
+      ["python3"] = {
+        before = true
+      }
+    }
     -- configuration goes here
   },
 }
