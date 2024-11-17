@@ -2,4 +2,5 @@
 --  I promise not to create any merge conflicts in this directory :)
 --
 -- See the kickstart.nvim README for more information
-return { 'github/copilot.vim', 'gpanders/editorconfig.nvim', 'pearofducks/ansible-vim' }
+return { 'gpanders/editorconfig.nvim', 'pearofducks/ansible-vim' }
+
