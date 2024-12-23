@@ -16,6 +16,7 @@ return {
         'vimdoc',
         'toml',
         'json5',
+        'json',
         'rust',
         'java',
         'nix',
@@ -23,7 +24,7 @@ return {
         'query',
         'diff',
         'markdown_inline',
-        'python',
+        'python'
       },
 
       -- Autoinstall languages that are not installed
