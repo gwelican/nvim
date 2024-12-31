@@ -1,0 +1,5 @@
+[tools]
+fd = "latest"
+fzf = "0.53"
+1password-cli = "latest"
+bun = "latest"
