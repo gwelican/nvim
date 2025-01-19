@@ -34,6 +34,8 @@ return {
       --  nvim-cmp does not ship with all sources by default. They are split
       --  into multiple repos for maintenance purposes.
       'hrsh7th/cmp-nvim-lsp',
+      "hrsh7th/cmp-nvim-lsp-signature-help",
+
       'hrsh7th/cmp-path',
     },
     config = function()
@@ -107,16 +109,27 @@ return {
           format = lspkind.cmp_format({
             mode = "symbol_text",
             max_width = 50,
-            symbol_map = { Copilot = "" }
+            symbol_map = { 
+              Copilot = "", 
+              Avante = "" -- Icon for Avante
+
+            }
           })
         },
         sources = {
-          { name = "copilot", group_index = 2 },
+          { name = "copilot" },
+          { name = "avante" },
+          { name = "nvim_lsp_signature_help" },
+
           {
             name = 'lazydev',
             -- set group index to 0 to skip loading LuaLS completions as lazydev recommends it
             group_index = 0,
           },
+          { name = "nvim_lua" },
+          { name = "buffer", keyword_length = 3 },
+
+
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
           { name = 'path' },
