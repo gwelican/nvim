@@ -1,7 +1,7 @@
 return {
   {
     "olimorris/codecompanion.nvim",
-    enabled = false,
+    enabled = true,
     cmd = { "CodeCompanion" },
     opts = {
       strategies = {
