@@ -29,7 +29,7 @@ return {
       { "<leader>tR", "<cmd>TestNearest<cr><cr>", desc = "Run TestNearest" },
     },
     config = function()
-      require("nvim-test").setup()
+      require("nvim-test").setup({})
       require("nvim-test.runners.pytest"):setup({ command = "/home/dev/patreon_py/bin/rdev/pytest" })
     end,
   },
@@ -66,12 +66,12 @@ return {
       },
       { "<leader>tz", "<cmd>VimuxZoomRunner<cr>", desc = "Zoom runner" },
     },
-    {
-      "mbbill/undotree",
+  },
+  {
+    "mbbill/undotree",
 
-      config = function()
-        vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
-      end,
-    },
+    config = function()
+      vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+    end,
   },
 }
