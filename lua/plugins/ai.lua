@@ -4,6 +4,12 @@ return {
     enabled = true,
     -- cmd = { "CodeCompanion" },
     opts = {
+      display = {
+        diff = {
+          enabled = true,
+          provider = "mini_diff",
+        },
+      },
       strategies = {
         chat = {
           adapter = "openai",
