@@ -45,7 +45,7 @@ return {
         "gitignore",
         "go",
         "http",
-        "nix",
+        -- "nix",
         "sql",
       })
     end,
