@@ -26,6 +26,26 @@ return {
   --   },
   -- },
   {
+    "nvim-neotest/neotest",
+    dependencies = {
+      "nvim-neotest/nvim-nio",
+      "nvim-lua/plenary.nvim",
+      "antoinemadec/FixCursorHold.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = function()
+      local neotest = require("neotest")
+      neotest.setup({
+        adapters = { require("neotest-python")({}) },
+        env = {
+          PATREON_PY_CONFIG_PATH = "/etc/patreon/testing.yml:patreon/config_test_circle.yml",
+          SQLALCHEMY_SILENCE_UBER_WARNING = "1",
+          RDEV = "1",
+        },
+      })
+    end,
+  },
+  {
     "yochem/jq-playground.nvim",
     cmd = { "JqPlayground" },
     keys = {

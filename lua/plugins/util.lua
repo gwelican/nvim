@@ -23,17 +23,6 @@ return {
     opts = {},
   },
   {
-    "klen/nvim-test",
-    keys = {
-      { "<leader>tT", "<cmd>TestFile<cr><cr>", desc = "Run test file" },
-      { "<leader>tR", "<cmd>TestNearest<cr><cr>", desc = "Run TestNearest" },
-    },
-    config = function()
-      require("nvim-test").setup({})
-      require("nvim-test.runners.pytest"):setup({ command = "/home/dev/patreon_py/bin/rdev/pytest" })
-    end,
-  },
-  {
     "theprimeagen/vim-be-good",
     dependencies = {
       "nvim-lua/plenary.nvim",
