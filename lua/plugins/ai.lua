@@ -68,6 +68,9 @@ return {
     version = false, -- set this to "*" if you want to always pull the latest change, false to update on release
     opts = {
       provider = "claude",
+      behaviour = {
+        auto_apply_diff_after_generation = true
+      },
       vendors = {
         groq = { -- define groq provider
           __inherited_from = "openai",
@@ -137,6 +140,8 @@ return {
     "zbirenbaum/copilot.lua",
     optional = true,
     opts = {
+      panel = { enabled = false },
+      suggestion = { enabled = false },
       filetypes = { ["*"] = true },
     },
   },
@@ -144,8 +149,10 @@ return {
   {
     "saghen/blink.cmp",
     dependencies = {
-      'rafamadriz/friendly-snippets' ,
+      "rafamadriz/friendly-snippets",
       "Kaiser-Yang/blink-cmp-avante",
+      "giuxtaposition/blink-cmp-copilot", -- Blink Copilot Source
+
     },
     opts_extend = { 'sources.default' },
 
@@ -153,34 +160,68 @@ return {
     opts = {
       completion = {
         accept = { auto_brackets = { enabled = true } },
-        menu = {
-          border = 'single',
-          draw = { treesitter = { 'lsp' } },
-        },
-        documentation = {
-          auto_show = true,
-          auto_show_delay_ms = 200,
-          window = {
-            border = 'single',
-          },
-        },
+        menu = { border = 'single', draw = { treesitter = { 'lsp' } } },
+        documentation = { auto_show = true, auto_show_delay_ms = 200, window = { border = 'single' } },
       },
-      signature = {
-        enabled = true,
-        window = {
-          border = 'single',
-        },
-      },
+      signature = { enabled = true, window = { border = 'single' } },
       sources = {
-        default = { "avante", "lsp", "path", "snippets", "buffer" },
+        default = { "avante", "copilot", "lsp", "path", "snippets", "buffer" },
         per_filetype = {
           AvanteInput = { 'avante' },
           lua = { 'lsp', 'path', 'snippets', 'buffer', 'lazydev', 'emoji' },
           sql = { 'snippets', 'dadbod', 'buffer' },
         },
         providers = {
+          copilot = {
+            name = "copilot",
+            module = "blink-cmp-copilot",
+            transform_items = function(_, items)
+              local CompletionItemKind = require("blink.cmp.types").CompletionItemKind
+              local kind_idx = #CompletionItemKind + 1
+              CompletionItemKind[kind_idx] = "Copilot"
+              for _, item in ipairs(items) do item.kind = kind_idx end
+              return items
+            end,
+            score_offset = 100,
+          },
           avante = { module = "blink-cmp-avante", name = "Avante" },
           lazydev = { name = 'LazyDev', module = 'lazydev.integrations.blink', score_offset = 100 },
+        },
+      },
+      appearance = {
+        kind_icons = {
+          copilot = "",
+          Copilot = "",
+          Text = '󰉿',
+          Method = '󰊕',
+          Function = '󰊕',
+          Constructor = '󰒓',
+
+          Field = '󰜢',
+          Variable = '󰆦',
+          Property = '󰖷',
+
+          Class = '󱡠',
+          Interface = '󱡠',
+          Struct = '󱡠',
+          Module = '󰅩',
+
+          Unit = '󰪚',
+          Value = '󰦨',
+          Enum = '󰦨',
+          EnumMember = '󰦨',
+
+          Keyword = '󰻾',
+          Constant = '󰏿',
+
+          Snippet = '󱄽',
+          Color = '󰏘',
+          File = '󰈔',
+          Reference = '󰬲',
+          Folder = '󰉋',
+          Event = '󱐋',
+          Operator = '󰪚',
+          TypeParameter = '󰬛',
         },
       },
     },
