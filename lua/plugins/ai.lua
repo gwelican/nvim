@@ -69,7 +69,7 @@ return {
     opts = {
       provider = "claude",
       behaviour = {
-        auto_apply_diff_after_generation = true
+        auto_apply_diff_after_generation = true,
       },
       vendors = {
         groq = { -- define groq provider
@@ -80,7 +80,7 @@ return {
           max_tokens = 32768, -- remember to increase this value, otherwise it will stop generating halfway
         },
       },
-      file_selector = { provider = 'snacks' },
+      file_selector = { provider = "snacks" },
     },
     build = "make",
     dependencies = {
@@ -114,26 +114,152 @@ return {
     },
     keys = {
       -- Normal & Visual Mode (ask)
-      { "<leader>ag", function() require("avante.api").ask({ question = avante_grammar_correction }) end, mode = { "n", "v" }, desc = "Grammar Correction (ask)" },
-      { "<leader>ak", function() require("avante.api").ask({ question = avante_keywords }) end, mode = { "n", "v" }, desc = "Keywords (ask)" },
-      { "<leader>al", function() require("avante.api").ask({ question = avante_code_readability_analysis }) end, mode = { "n", "v" }, desc = "Code Readability Analysis (ask)" },
-      { "<leader>ao", function() require("avante.api").ask({ question = avante_optimize_code }) end, mode = { "n", "v" }, desc = "Optimize Code (ask)" },
-      { "<leader>am", function() require("avante.api").ask({ question = avante_summarize }) end, mode = { "n", "v" }, desc = "Summarize text (ask)" },
-      { "<leader>an", function() require("avante.api").ask({ question = avante_translate }) end, mode = { "n", "v" }, desc = "Translate text (ask)" },
-      { "<leader>ax", function() require("avante.api").ask({ question = avante_explain_code }) end, mode = { "n", "v" }, desc = "Explain Code (ask)" },
-      { "<leader>ac", function() require("avante.api").ask({ question = avante_complete_code }) end, mode = { "n", "v" }, desc = "Complete Code (ask)" },
-      { "<leader>ad", function() require("avante.api").ask({ question = avante_add_docstring }) end, mode = { "n", "v" }, desc = "Docstring (ask)" },
-      { "<leader>ab", function() require("avante.api").ask({ question = avante_fix_bugs }) end, mode = { "n", "v" }, desc = "Fix Bugs (ask)" },
-      { "<leader>au", function() require("avante.api").ask({ question = avante_add_tests }) end, mode = { "n", "v" }, desc = "Add Tests (ask)" },
+      {
+        "<leader>ag",
+        function()
+          require("avante.api").ask({ question = avante_grammar_correction })
+        end,
+        mode = { "n", "v" },
+        desc = "Grammar Correction (ask)",
+      },
+      {
+        "<leader>ak",
+        function()
+          require("avante.api").ask({ question = avante_keywords })
+        end,
+        mode = { "n", "v" },
+        desc = "Keywords (ask)",
+      },
+      {
+        "<leader>al",
+        function()
+          require("avante.api").ask({ question = avante_code_readability_analysis })
+        end,
+        mode = { "n", "v" },
+        desc = "Code Readability Analysis (ask)",
+      },
+      {
+        "<leader>ao",
+        function()
+          require("avante.api").ask({ question = avante_optimize_code })
+        end,
+        mode = { "n", "v" },
+        desc = "Optimize Code (ask)",
+      },
+      {
+        "<leader>am",
+        function()
+          require("avante.api").ask({ question = avante_summarize })
+        end,
+        mode = { "n", "v" },
+        desc = "Summarize text (ask)",
+      },
+      {
+        "<leader>an",
+        function()
+          require("avante.api").ask({ question = avante_translate })
+        end,
+        mode = { "n", "v" },
+        desc = "Translate text (ask)",
+      },
+      {
+        "<leader>ax",
+        function()
+          require("avante.api").ask({ question = avante_explain_code })
+        end,
+        mode = { "n", "v" },
+        desc = "Explain Code (ask)",
+      },
+      {
+        "<leader>ac",
+        function()
+          require("avante.api").ask({ question = avante_complete_code })
+        end,
+        mode = { "n", "v" },
+        desc = "Complete Code (ask)",
+      },
+      {
+        "<leader>ad",
+        function()
+          require("avante.api").ask({ question = avante_add_docstring })
+        end,
+        mode = { "n", "v" },
+        desc = "Docstring (ask)",
+      },
+      {
+        "<leader>ab",
+        function()
+          require("avante.api").ask({ question = avante_fix_bugs })
+        end,
+        mode = { "n", "v" },
+        desc = "Fix Bugs (ask)",
+      },
+      {
+        "<leader>au",
+        function()
+          require("avante.api").ask({ question = avante_add_tests })
+        end,
+        mode = { "n", "v" },
+        desc = "Add Tests (ask)",
+      },
 
       -- Visual Mode (edit)
-      { "<leader>aG", function() prefill_edit_window(avante_grammar_correction) end, mode = { "v" }, desc = "Grammar Correction (edit)" },
-      { "<leader>aK", function() prefill_edit_window(avante_keywords) end, mode = { "v" }, desc = "Keywords (edit)" },
-      { "<leader>aO", function() prefill_edit_window(avante_optimize_code) end, mode = { "v" }, desc = "Optimize Code (edit)" },
-      { "<leader>aC", function() prefill_edit_window(avante_complete_code) end, mode = { "v" }, desc = "Complete Code (edit)" },
-      { "<leader>aD", function() prefill_edit_window(avante_add_docstring) end, mode = { "v" }, desc = "Docstring (edit)" },
-      { "<leader>aB", function() prefill_edit_window(avante_fix_bugs) end, mode = { "v" }, desc = "Fix Bugs (edit)" },
-      { "<leader>aU", function() prefill_edit_window(avante_add_tests) end, mode = { "v" }, desc = "Add Tests (edit)" },
+      {
+        "<leader>aG",
+        function()
+          prefill_edit_window(avante_grammar_correction)
+        end,
+        mode = { "v" },
+        desc = "Grammar Correction (edit)",
+      },
+      {
+        "<leader>aK",
+        function()
+          prefill_edit_window(avante_keywords)
+        end,
+        mode = { "v" },
+        desc = "Keywords (edit)",
+      },
+      {
+        "<leader>aO",
+        function()
+          prefill_edit_window(avante_optimize_code)
+        end,
+        mode = { "v" },
+        desc = "Optimize Code (edit)",
+      },
+      {
+        "<leader>aC",
+        function()
+          prefill_edit_window(avante_complete_code)
+        end,
+        mode = { "v" },
+        desc = "Complete Code (edit)",
+      },
+      {
+        "<leader>aD",
+        function()
+          prefill_edit_window(avante_add_docstring)
+        end,
+        mode = { "v" },
+        desc = "Docstring (edit)",
+      },
+      {
+        "<leader>aB",
+        function()
+          prefill_edit_window(avante_fix_bugs)
+        end,
+        mode = { "v" },
+        desc = "Fix Bugs (edit)",
+      },
+      {
+        "<leader>aU",
+        function()
+          prefill_edit_window(avante_add_tests)
+        end,
+        mode = { "v" },
+        desc = "Add Tests (edit)",
+      },
     },
   },
   {
@@ -152,24 +278,23 @@ return {
       "rafamadriz/friendly-snippets",
       "Kaiser-Yang/blink-cmp-avante",
       "giuxtaposition/blink-cmp-copilot", -- Blink Copilot Source
-
     },
-    opts_extend = { 'sources.default' },
+    opts_extend = { "sources.default" },
 
     ---@type blink.cmp.Config
     opts = {
       completion = {
         accept = { auto_brackets = { enabled = true } },
-        menu = { border = 'single', draw = { treesitter = { 'lsp' } } },
-        documentation = { auto_show = true, auto_show_delay_ms = 200, window = { border = 'single' } },
+        menu = { border = "single", draw = { treesitter = { "lsp" } } },
+        documentation = { auto_show = true, auto_show_delay_ms = 200, window = { border = "single" } },
       },
-      signature = { enabled = true, window = { border = 'single' } },
+      signature = { enabled = true, window = { border = "single" } },
       sources = {
         default = { "avante", "copilot", "lsp", "path", "snippets", "buffer" },
         per_filetype = {
-          AvanteInput = { 'avante' },
-          lua = { 'lsp', 'path', 'snippets', 'buffer', 'lazydev', 'emoji' },
-          sql = { 'snippets', 'dadbod', 'buffer' },
+          AvanteInput = { "avante" },
+          lua = { "lsp", "path", "snippets", "buffer", "lazydev" },
+          sql = { "snippets", "dadbod", "buffer" },
         },
         providers = {
           copilot = {
@@ -179,49 +304,51 @@ return {
               local CompletionItemKind = require("blink.cmp.types").CompletionItemKind
               local kind_idx = #CompletionItemKind + 1
               CompletionItemKind[kind_idx] = "Copilot"
-              for _, item in ipairs(items) do item.kind = kind_idx end
+              for _, item in ipairs(items) do
+                item.kind = kind_idx
+              end
               return items
             end,
             score_offset = 100,
           },
           avante = { module = "blink-cmp-avante", name = "Avante" },
-          lazydev = { name = 'LazyDev', module = 'lazydev.integrations.blink', score_offset = 100 },
+          lazydev = { name = "LazyDev", module = "lazydev.integrations.blink", score_offset = 100 },
         },
       },
       appearance = {
         kind_icons = {
           copilot = "",
           Copilot = "",
-          Text = '󰉿',
-          Method = '󰊕',
-          Function = '󰊕',
-          Constructor = '󰒓',
+          Text = "󰉿",
+          Method = "󰊕",
+          Function = "󰊕",
+          Constructor = "󰒓",
 
-          Field = '󰜢',
-          Variable = '󰆦',
-          Property = '󰖷',
+          Field = "󰜢",
+          Variable = "󰆦",
+          Property = "󰖷",
 
-          Class = '󱡠',
-          Interface = '󱡠',
-          Struct = '󱡠',
-          Module = '󰅩',
+          Class = "󱡠",
+          Interface = "󱡠",
+          Struct = "󱡠",
+          Module = "󰅩",
 
-          Unit = '󰪚',
-          Value = '󰦨',
-          Enum = '󰦨',
-          EnumMember = '󰦨',
+          Unit = "󰪚",
+          Value = "󰦨",
+          Enum = "󰦨",
+          EnumMember = "󰦨",
 
-          Keyword = '󰻾',
-          Constant = '󰏿',
+          Keyword = "󰻾",
+          Constant = "󰏿",
 
-          Snippet = '󱄽',
-          Color = '󰏘',
-          File = '󰈔',
-          Reference = '󰬲',
-          Folder = '󰉋',
-          Event = '󱐋',
-          Operator = '󰪚',
-          TypeParameter = '󰬛',
+          Snippet = "󱄽",
+          Color = "󰏘",
+          File = "󰈔",
+          Reference = "󰬲",
+          Folder = "󰉋",
+          Event = "󱐋",
+          Operator = "󰪚",
+          TypeParameter = "󰬛",
         },
       },
     },

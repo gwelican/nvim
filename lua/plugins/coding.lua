@@ -44,6 +44,12 @@ return {
         },
       })
     end,
+    keys = {
+      {
+        "<leader>tl",
+        false,
+      },
+    },
   },
   {
     "yochem/jq-playground.nvim",
