@@ -71,6 +71,9 @@ return {
       behaviour = {
         auto_apply_diff_after_generation = true,
       },
+      claude = {
+        model = "claude-3-5-sonnet-20241022",
+      },
       vendors = {
         groq = { -- define groq provider
           __inherited_from = "openai",
