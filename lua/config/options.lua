@@ -5,7 +5,7 @@ vim.opt.swapfile = false
 
 -- better coop with fzf-lua
 vim.env.FZF_DEFAULT_OPTS = ""
-vim.g.ai_cmp = false
+vim.g.ai_cmp = true
 -- vim.g.lazyvim_blink_main = not jit.os:find("Windows")
 vim.opt.clipboard = "unnamedplus"
 vim.opt.laststatus = 3

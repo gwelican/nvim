@@ -70,9 +70,11 @@ return {
       provider = "claude",
       behaviour = {
         auto_apply_diff_after_generation = true,
+        auto_suggestions = true,
       },
       claude = {
         model = "claude-3-5-sonnet-20241022",
+        max_tokens = 8092,
       },
       vendors = {
         groq = { -- define groq provider
