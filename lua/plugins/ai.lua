@@ -67,7 +67,7 @@ return {
     lazy = false,
     version = false, -- set this to "*" if you want to always pull the latest change, false to update on release
     opts = {
-      provider = "claude",
+      provider = "copilot",
       behaviour = {
         auto_apply_diff_after_generation = true,
         auto_suggestions = true,
