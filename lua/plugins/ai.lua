@@ -73,19 +73,19 @@ return {
         auto_suggestions = false,
       },
       auto_suggestions_provider = "copilot",
-      -- claude = {
-      --   model = "claude-3-5-sonnet-20241022",
-      --   max_tokens = 8092,
-      -- },
-      -- vendors = {
-      --   groq = { -- define groq provider
-      --     __inherited_from = "openai",
-      --     api_key_name = "GROQ_API_KEY", -- pragma: allowlist secret
-      --     endpoint = "https://api.groq.com/openai/v1/",
-      --     model = "llama-3.3-70b-versatile",
-      --     max_tokens = 32768, -- remember to increase this value, otherwise it will stop generating halfway
-      --   },
-      -- },
+      claude = {
+        model = "claude-3-5-sonnet-20241022",
+        max_tokens = 8092,
+      },
+      vendors = {
+        groq = { -- define groq provider
+          __inherited_from = "openai",
+          api_key_name = "GROQ_API_KEY", -- pragma: allowlist secret
+          endpoint = "https://api.groq.com/openai/v1/",
+          model = "llama-3.3-70b-versatile",
+          max_tokens = 32768, -- remember to increase this value, otherwise it will stop generating halfway
+        },
+      },
       file_selector = { provider = "snacks" },
     },
     build = "make",
