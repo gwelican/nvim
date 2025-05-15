@@ -70,8 +70,9 @@ return {
       provider = "copilot",
       behaviour = {
         auto_apply_diff_after_generation = true,
-        auto_suggestions = true,
+        auto_suggestions = false,
       },
+      auto_suggestions_provider = "copilot",
       -- claude = {
       --   model = "claude-3-5-sonnet-20241022",
       --   max_tokens = 8092,
