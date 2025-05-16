@@ -127,6 +127,10 @@ return {
     config = function()
       require("neo-tree").setup({
         filesystem = {
+          follow_current_file = {
+            enabled = true,
+          },
+
           commands = {
             avante_add_files = function(state)
               local node = state.tree:get_node()
