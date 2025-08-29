@@ -73,11 +73,13 @@ return {
         auto_suggestions = false,
       },
       auto_suggestions_provider = "copilot",
-      claude = {
-        model = "claude-3-5-sonnet-20241022",
-        max_tokens = 8092,
-      },
-      vendors = {
+      providers = {
+        claude = {
+          model = "claude-3-5-sonnet-20241022",
+          extra_request_body = {
+            max_tokens = 8092,
+          },
+        },
         groq = { -- define groq provider
           __inherited_from = "openai",
           api_key_name = "GROQ_API_KEY", -- pragma: allowlist secret
