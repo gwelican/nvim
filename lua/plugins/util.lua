@@ -1,6 +1,6 @@
 return {
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     opts = {
       ensure_installed = {
         "stylua",
@@ -49,7 +49,7 @@ return {
         "<leader>tl",
         function()
           local current_directory = vim.fn.expand("%:p:h") -- Get the current file's directory
-          vim.cmd(string.format("VimuxRunCommand('cd %s && t lint')", current_directory))
+          vim.cmd(string.format("VimuxRunCommand('cd %s && kube-lint .')", current_directory))
         end,
         desc = "Run kustomize lint",
       },
