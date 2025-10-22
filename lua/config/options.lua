@@ -9,3 +9,9 @@ vim.g.ai_cmp = true
 -- vim.g.lazyvim_blink_main = not jit.os:find("Windows")
 vim.opt.clipboard = "unnamedplus"
 vim.opt.laststatus = 3
+
+-- Enable folding in Neovim
+vim.o.foldmethod = "marker"
+
+vim.o.modeline = true -- Enable modelines
+vim.o.modelines = 5 -- Check first and last 5 lines for modelines
