@@ -13,10 +13,10 @@ return {
   {
     "taybart/b64.nvim",
   },
-  {
-    "mistricky/codesnap.nvim",
-    build = "make",
-  },
+  -- {
+  --   "mistricky/codesnap.nvim",
+  --   build = "make",
+  -- },
   {
     "fei6409/log-highlight.nvim",
     event = "BufRead *.log",
