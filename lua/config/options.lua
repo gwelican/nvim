@@ -8,6 +8,17 @@ vim.env.FZF_DEFAULT_OPTS = ""
 vim.g.ai_cmp = true
 -- vim.g.lazyvim_blink_main = not jit.os:find("Windows")
 vim.opt.clipboard = "unnamedplus"
+if vim.env.SSH_CONNECTION or vim.env.SSH_TTY then
+  local ok, osc52 = pcall(require, "vim.ui.clipboard.osc52")
+  if ok then
+    vim.g.clipboard = {
+      name = "OSC 52",
+      copy = { ["+"] = osc52.copy("+"), ["*"] = osc52.copy("*") },
+      paste = { ["+"] = osc52.paste("+"), ["*"] = osc52.paste("*") },
+      cache_enabled = 0,
+    }
+  end
+end
 vim.opt.laststatus = 3
 
 -- Enable folding in Neovim
