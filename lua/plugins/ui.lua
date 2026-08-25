@@ -49,11 +49,6 @@ return {
     end,
   },
   {
-    "sphamba/smear-cursor.nvim",
-    enabled = false,
-    opts = {},
-  },
-  {
     "cameron-wags/rainbow_csv.nvim",
     config = true,
     ft = {
