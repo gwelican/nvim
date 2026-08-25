@@ -11,7 +11,6 @@ return {
   },
   {
     "stevearc/conform.nvim",
-    optional = true,
     opts = {
       formatters_by_ft = {
         yaml = { "yamlfix" },
@@ -21,12 +20,6 @@ return {
   },
   {
     "nvim-neotest/neotest",
-    keys = {
-      {
-        "<leader>tl",
-        false,
-      },
-    },
   },
   {
     "yochem/jq-playground.nvim",
