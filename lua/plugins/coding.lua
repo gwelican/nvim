@@ -21,23 +21,6 @@ return {
   },
   {
     "nvim-neotest/neotest",
-    dependencies = {
-      "nvim-neotest/nvim-nio",
-      "nvim-lua/plenary.nvim",
-      "antoinemadec/FixCursorHold.nvim",
-      "nvim-treesitter/nvim-treesitter",
-    },
-    config = function()
-      local neotest = require("neotest")
-      neotest.setup({
-        adapters = { require("neotest-python")({}) },
-        env = {
-          PATREON_PY_CONFIG_PATH = "/etc/patreon/testing.yml:patreon/config_test_circle.yml",
-          SQLALCHEMY_SILENCE_UBER_WARNING = "1",
-          RDEV = "1",
-        },
-      })
-    end,
     keys = {
       {
         "<leader>tl",
@@ -68,17 +51,6 @@ return {
         -- "nix",
         "sql",
       })
-    end,
-  },
-  {
-    "klen/nvim-test",
-    keys = {
-      { "<leader>tT", "<cmd>TestFile<cr><cr>", desc = "Run test file" },
-      { "<leader>tR", "<cmd>TestNearest<cr><cr>", desc = "Run TestNearest" },
-    },
-    config = function()
-      require("nvim-test").setup({})
-      require("nvim-test.runners.pytest"):setup({ command = "/home/dev/patreon_py/bin/rdev/pytest" })
     end,
   },
   {
