@@ -10,7 +10,7 @@ return {
     local basename = vim.fs.basename(cwd)
     _99.setup({
       logger = {
-        level = _99.DEBUG,
+        level = _99.WARN,
         path = "/tmp/" .. basename .. ".99.debug",
         print_on_error = true,
       },
