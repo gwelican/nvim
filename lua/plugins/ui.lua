@@ -30,7 +30,7 @@ return {
             kind = "progress",
           },
           cond = function()
-            return not focused and false
+            return not focused
           end,
         },
         view = "notify_send",
