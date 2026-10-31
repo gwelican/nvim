@@ -1,43 +1,42 @@
 fail_fast: false
 
 repos:
-  - repo: https://github.com/Yelp/detect-secrets/
-    rev: v1.5.0
+  - repo: https://github.com/JohnnyMorganz/StyLua
+    rev: v2.6.0
     hooks:
-      - id: detect-secrets
-        # args: ["--baseline", ".secrets.baseline"]
-        exclude: lazy-lock.json
+      - id: stylua-github
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v5.0.0
+    rev: v6.0.0
     hooks:
-      - id: check-symlinks
       - id: check-yaml
-        args: ["--allow-multiple-documents"]
-      - id: double-quote-string-fixer
-      - id: forbid-new-submodules
-      - id: mixed-line-ending
-      - id: trailing-whitespace
       - id: check-json
       - id: check-merge-conflict
+      - id: check-symlinks
       - id: mixed-line-ending
       - id: trailing-whitespace
         args: [--markdown-linebreak-ext=md]
-
+      - id: detect-private-key
       - id: detect-aws-credentials
         args: ["--allow-missing-credentials"]
-      - id: detect-private-key
+
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.5.0
+    hooks:
+      - id: detect-secrets
+        exclude: lazy-lock\.json
 
   - repo: https://github.com/Lucas-C/pre-commit-hooks
-    rev: v1.5.5
+    rev: v1.5.6
     hooks:
       - id: remove-crlf
       - id: remove-tabs
 
   - repo: https://github.com/sirosen/texthooks
-    rev: 0.6.8
+    rev: 1.0.0
     hooks:
       - id: fix-smartquotes
+        files: \.md$
 
   - repo: https://github.com/k8s-at-home/sops-pre-commit
     rev: v2.1.1
