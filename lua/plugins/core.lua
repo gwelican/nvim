@@ -12,7 +12,7 @@ return {
         yamlls = { enabled = false },
         yayamlls = {
           mason = false,
-          cmd = { "yayamlls" },
+          cmd = { vim.fn.expand("~/.local/share/mise/shims/yayamlls") },
           filetypes = { "yaml" },
           root_markers = { ".yayamlls.yaml", ".git" },
         },

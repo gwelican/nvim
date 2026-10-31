@@ -5,3 +5,21 @@
 vim.keymap.set("n", ",s", ':split <C-R>=expand("%:p:h") .. "/"<CR>', { noremap = true })
 vim.keymap.set("n", ",v", ':vsplit <C-R>=expand("%:p:h") .. "/"<CR>', { noremap = true })
 -- vim.keymap.set("n", ",e", ':e <C-R>=expand("%:p:h") .. "/"<CR>', { noremap = true })
+
+local function yayamlls_render_lint()
+  local filename = vim.api.nvim_buf_get_name(0)
+  local root = vim.fs.root(filename, { ".yayamlls.yaml", ".git" }) or LazyVim.root.get()
+  local target = (filename ~= "" and vim.fs.relpath(root, filename)) or "."
+  local yayamlls = vim.fn.expand("~/.local/share/mise/shims/yayamlls")
+
+  Snacks.terminal({
+    vim.fn.executable(yayamlls) == 1 and yayamlls or "yayamlls",
+    "validate",
+    "--render",
+    "--root",
+    root,
+    target,
+  }, { cwd = root })
+end
+
+vim.keymap.set("n", "<leader>cY", yayamlls_render_lint, { desc = "Lint current Kubernetes YAML (yayamlls --render)" })

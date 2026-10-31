@@ -51,39 +51,8 @@ return {
     event = "LazyFile",
     opts = {
       linters_by_ft = {
-        yaml = { "kubelint", "yamllint" },
+        yaml = { "yamllint" },
         py = { "mypy" },
-      },
-      linters = {
-        kubelint = {
-          cmd = "kube-lint",
-          condition = function(ctx)
-            return vim.fs.find({ "kustomization.yaml" }, { path = ctx.filename, upward = true })[1]
-          end,
-          parser = function(output, bufnr)
-            if vim.trim(output) == "" then
-              return {}
-            end
-            local decoded = vim.json.decode(output)
-            local diagnostics = {}
-            local items = decoded["Reports"]
-            if items == vim.v.null then
-              return diagnostics
-            end
-            for _, item in pairs(items or {}) do
-              table.insert(diagnostics, {
-                lnum = 0,
-                end_lnum = 0,
-                col = 0,
-                end_col = 0,
-                message = item["Diagnostic"]["Message"],
-                source = "kube-lint",
-                severity = vim.diagnostic.severity.WARN,
-              })
-            end
-            return diagnostics
-          end,
-        },
       },
     },
   },
