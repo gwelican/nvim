@@ -10,6 +10,18 @@ return {
     },
   },
   {
+    "saghen/blink.cmp",
+    opts = {
+      completion = {
+        ghost_text = { enabled = false },
+        menu = { auto_show = false },
+      },
+      keymap = {
+        ["<C-Space>"] = { "show", "fallback" },
+      },
+    },
+  },
+  {
     "stevearc/conform.nvim",
     opts = {
       formatters_by_ft = {
