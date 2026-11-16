@@ -9,6 +9,9 @@ Mason installs Prettier for JSON/YAML formatting and Mypy for Python type checki
 Formatting uses LazyVim's Conform integration; Mypy diagnostics use nvim-lint.
 Prettier fixes formatting, not schema or application-level errors.
 
+Base64 tools load on `:B64Encode` / `:B64Decode`; VimBeGood loads on `:VimBeGood`.
+Folding uses LazyVim's defaults rather than a global marker-folding override.
+
 ## Custom shortcuts
 
 `<leader>` is Space.

@@ -3,9 +3,6 @@ return {
     "mason-org/mason.nvim",
     opts = {
       ensure_installed = {
-        "stylua",
-        "shellcheck",
-        "shfmt",
         "prettier",
         "mypy",
       },
@@ -13,6 +10,7 @@ return {
   },
   {
     "taybart/b64.nvim",
+    cmd = { "B64Encode", "B64Decode" },
   },
   -- {
   --   "mistricky/codesnap.nvim",
@@ -25,6 +23,7 @@ return {
   },
   {
     "theprimeagen/vim-be-good",
+    cmd = "VimBeGood",
     dependencies = {
       "nvim-lua/plenary.nvim",
     },

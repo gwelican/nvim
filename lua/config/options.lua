@@ -16,6 +16,3 @@ if vim.env.SSH_CONNECTION or vim.env.SSH_TTY then
     }
   end
 end
-
--- Enable folding in Neovim
-vim.o.foldmethod = "marker"
