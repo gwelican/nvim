@@ -1,12 +1,19 @@
 return {
-  "lucidph3nx/nvim-sops",
-  keys = {
-    { "<leader>ef", vim.cmd.SopsEncrypt, desc = "[E]ncrypt [F]ile" },
-    { "<leader>df", vim.cmd.SopsDecrypt, desc = "[D]ecrypt [F]ile" },
+  {
+    "lucidph3nx/nvim-sops",
+    keys = {
+      { "<leader>ze", vim.cmd.SopsEncrypt, desc = "Encrypt File (SOPS)" },
+      { "<leader>zd", vim.cmd.SopsDecrypt, desc = "Decrypt File (SOPS)" },
+    },
+    opts = {},
   },
-  opts = {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
+  {
+    "folke/which-key.nvim",
+    optional = true,
+    opts = {
+      spec = {
+        { "<leader>z", group = "secrets" },
+      },
+    },
   },
 }

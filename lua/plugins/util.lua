@@ -6,6 +6,8 @@ return {
         "stylua",
         "shellcheck",
         "shfmt",
+        "prettier",
+        "mypy",
       },
     },
   },
@@ -28,10 +30,15 @@ return {
     },
   },
   {
+    "folke/snacks.nvim",
+    keys = {
+      { "<leader>su", false },
+    },
+  },
+  {
     "mbbill/undotree",
-
-    config = function()
-      vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
-    end,
+    keys = {
+      { "<leader>su", "<cmd>UndotreeToggle<cr>", desc = "Toggle Undotree" },
+    },
   },
 }

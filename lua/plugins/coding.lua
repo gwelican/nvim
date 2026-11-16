@@ -13,8 +13,8 @@ return {
     "stevearc/conform.nvim",
     opts = {
       formatters_by_ft = {
-        yaml = { "yamlfix" },
-        json = { "fixjson" },
+        yaml = { "prettier" },
+        json = { "prettier" },
       },
     },
   },
@@ -25,7 +25,7 @@ return {
     "yochem/jq-playground.nvim",
     cmd = { "JqPlayground" },
     keys = {
-      { "<leader>jq", vim.cmd.JqPlayground },
+      { "<leader>jq", vim.cmd.JqPlayground, desc = "JQ Playground" },
     },
   },
   {
@@ -52,7 +52,7 @@ return {
     opts = {
       linters_by_ft = {
         yaml = { "yamllint" },
-        py = { "mypy" },
+        python = { "mypy" },
       },
     },
   },
