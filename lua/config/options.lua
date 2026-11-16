@@ -3,7 +3,6 @@
 -- Add any additional options here
 vim.opt.swapfile = false
 
--- vim.g.lazyvim_blink_main = not jit.os:find("Windows")
 vim.opt.clipboard = "unnamedplus"
 if vim.env.SSH_CONNECTION or vim.env.SSH_TTY then
   local ok, osc52 = pcall(require, "vim.ui.clipboard.osc52")

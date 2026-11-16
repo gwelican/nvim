@@ -13,7 +13,6 @@ return {
     "stevearc/conform.nvim",
     opts = {
       formatters_by_ft = {
-        yaml = { "prettier" },
         json = { "prettier" },
       },
     },
@@ -41,7 +40,6 @@ return {
         "gitignore",
         "go",
         "http",
-        -- "nix",
         "sql",
       })
     end,
@@ -51,7 +49,6 @@ return {
     event = "LazyFile",
     opts = {
       linters_by_ft = {
-        yaml = { "yamllint" },
         python = { "mypy" },
       },
     },

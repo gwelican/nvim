@@ -12,10 +12,6 @@ return {
     "taybart/b64.nvim",
     cmd = { "B64Encode", "B64Decode" },
   },
-  -- {
-  --   "mistricky/codesnap.nvim",
-  --   build = "make",
-  -- },
   {
     "fei6409/log-highlight.nvim",
     event = "BufRead *.log",

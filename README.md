@@ -1,7 +1,6 @@
-# 💤 LazyVim
+# Neovim configuration
 
-A starter template for [LazyVim](https://github.com/LazyVim/LazyVim).
-Refer to the [documentation](https://lazyvim.github.io/installation) to get started.
+Personal configuration built on [LazyVim](https://www.lazyvim.org/).
 
 ## Local tooling
 
@@ -12,6 +11,8 @@ Prettier fixes formatting, not schema or application-level errors.
 Base64 tools load on `:B64Encode` / `:B64Decode`; VimBeGood loads on `:VimBeGood`.
 Folding uses LazyVim's defaults rather than a global marker-folding override.
 
+YAML's language server, formatter, linter, and validation shortcut live together in `lua/plugins/yaml.lua`.
+
 ## Custom shortcuts
 
 `<leader>` is Space.
@@ -21,5 +22,11 @@ Folding uses LazyVim's defaults rather than a global marker-folding override.
 | `<leader>su` | Toggle Undotree (replaces the Snacks undo picker binding) |
 | `<leader>ze` | Encrypt the current file with SOPS |
 | `<leader>zd` | Decrypt the current file with SOPS |
+| `<leader>cY` | Validate the current Kubernetes YAML with `yayamlls --render` |
 
 The `<leader>z` group is labeled "secrets" in WhichKey. SOPS retains its in-place file behavior.
+
+## Intentional keymap choices
+
+`J` intentionally invokes TreeSJ's syntax-aware split/join toggle, including YAML structures.
+Keep this override: native `J` only joins lines and does not replace TreeSJ's structural behavior.
